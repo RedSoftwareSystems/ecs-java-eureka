@@ -8,4 +8,8 @@ RUN pip3 install --no-cache-dir boto3 boto requests
 
 
 ADD ./ecs-get-port-mapping.py /
+ADD ./entrypoint.sh /
 
+RUN chmod 755 /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
