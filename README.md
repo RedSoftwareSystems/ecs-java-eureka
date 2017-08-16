@@ -1,6 +1,6 @@
 # ECS-JAVA-EUREKA #
 
-Base image for ECS Aware Eueka Instances
+Base image for ECS Aware Eureka Instances
 
 ### What is this repository for? ###
 

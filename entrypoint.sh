@@ -7,7 +7,7 @@ set -o xtrace
 case "$SPRING_PROFILES_ACTIVE" in
   *ecs*)
     echo "var Set, executing python script"
-    result="$(python3 /ecs-get-port-mapping.py)"
+    result="$(python3 /app/ecs-get-port-mapping.py)"
     eval "$result"
     ECS_HOST_PORT="$PORT_TCP_8080"
     export ECS_HOST_PORT;;
