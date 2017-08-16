@@ -4,8 +4,8 @@ Base image for ECS Aware Eueka Instances
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
+* This repository maintains a slightly modified alpine / Java 8 Image (slim) with additional tooling to support Eureka in ECS
+* V. 0.1 Alpha
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
