@@ -2,28 +2,33 @@
 
 Base image for ECS Aware Eureka Instances
 
-### What is this repository for? ###
+### Usage ###
 
-* This repository maintains a slightly modified alpine / Java 8 Image (slim) with additional tooling to support Eureka in ECS
-* V. 0.1 Alpha
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+The [ecs-java-eureka](https://bitbucket.org/RedSoftwareSystems/ecs-java-eureka) is a Docker image derived from the excellent and widely suggested
+`frolvlad/alpine-oraclejdk8:slim` docker image: it adds python and some modules (nominally, boto, boto3 and requests ) and an entry point script.
 
-### How do I get set up? ###
+The entry point expects the definition of a CMD inside the final (yours) docker definition. Following is an example docker definition:
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+    FROM redss/ecs-java-eureka:0.1-alpha
+    VOLUME /tmp
+    
+    MAINTAINER Somebody <somebody@somewhere>
+    
+    ADD ./applications.jar /app/
+    RUN sh -c 'touch /app/gip-db-service.jar'
+    
+    CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/application.jar"]
+    
+    EXPOSE port#
+    
+Python is needed to execute the included script (ecs-get-port-mapping.py) which retrieves
+the ECS Host exposed ports. 
 
-### Contribution guidelines ###
+### Acknowledgements ###
 
-* Writing tests
-* Code review
-* Other guidelines
+The script is a gist from [Chris Smith](https://gist.github.com/chris-smith-zocdoc/126db78651046c67ac66dbd87393b1dc)
 
-### Who do I talk to? ###
+### Contact ###
 
-* Repo owner or admin
-* Other community or team contact
+Please contact lbotti@red.software.systems for info about this
+project.
