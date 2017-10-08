@@ -14,8 +14,8 @@ The entry point expects the definition of a CMD inside the final (yours) docker 
     
     MAINTAINER Somebody <somebody@somewhere>
     
-    ADD ./applications.jar /app/
-    RUN sh -c 'touch /app/gip-db-service.jar'
+    ADD ./application.jar /app/
+    RUN sh -c 'touch /app/application.jar'
     
     CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/application.jar"]
     
